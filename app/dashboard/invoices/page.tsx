@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { InvoiceTable } from "@/components/invoices/InvoiceTable";
-import { createServerSupabaseClient as createServerClient } from "@/lib/supabase";
+import { createServerSupabaseClient as createServerClient } from "@/lib/supabase-server";
 
 export const dynamic = "force-dynamic";
 

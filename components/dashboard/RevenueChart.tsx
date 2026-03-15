@@ -38,7 +38,7 @@ function CustomTooltip({
 }) {
   if (active && payload && payload.length) {
     return (
-      <div className="rounded-lg border bg-background p-3 shadow-sm">
+      <div className="glass rounded-xl p-3 shadow-lg">
         <p className="text-sm font-medium">{label}</p>
         <p className="text-sm text-muted-foreground">
           Revenue:{" "}
@@ -66,23 +66,31 @@ export function RevenueChart({ data }: RevenueChartProps) {
         ) : (
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" strokeOpacity={0.6} />
               <XAxis
                 dataKey="month"
-                className="text-xs"
-                tick={{ fontSize: 12 }}
+                tick={{ fontSize: 12, fill: "#94a3b8" }}
+                axisLine={{ stroke: "#e2e8f0" }}
+                tickLine={false}
               />
               <YAxis
-                className="text-xs"
-                tick={{ fontSize: 12 }}
+                tick={{ fontSize: 12, fill: "#94a3b8" }}
+                axisLine={false}
+                tickLine={false}
                 tickFormatter={formatCurrencyShort}
               />
               <Tooltip content={<CustomTooltip />} />
               <Bar
                 dataKey="revenue"
-                fill="hsl(var(--primary))"
-                radius={[4, 4, 0, 0]}
+                fill="url(#barGradient)"
+                radius={[6, 6, 0, 0]}
               />
+              <defs>
+                <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#2563eb" />
+                  <stop offset="100%" stopColor="#6366f1" />
+                </linearGradient>
+              </defs>
             </BarChart>
           </ResponsiveContainer>
         )}

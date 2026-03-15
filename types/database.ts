@@ -13,6 +13,7 @@ export interface Client {
   end_date: string | null;
   clickup_url: string | null;
   notes: string | null;
+  created_by: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -26,6 +27,7 @@ export interface Project {
   deadline: string | null;
   clickup_url: string | null;
   description: string | null;
+  created_by: string | null;
   created_at: string;
 }
 
@@ -40,6 +42,7 @@ export interface Invoice {
   paid_date: string | null;
   pdf_url: string | null;
   notes: string | null;
+  created_by: string | null;
   created_at: string;
 }
 
@@ -50,5 +53,5 @@ export interface TeamMember {
   role: string | null;
 }
 
-export type ClientInsert = Omit<Client, "id" | "created_at" | "updated_at">;
+export type ClientInsert = Omit<Client, "id" | "created_by" | "created_at" | "updated_at">;
 export type ClientUpdate = Partial<ClientInsert>;

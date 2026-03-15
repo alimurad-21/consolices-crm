@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { createServerSupabaseClient as createServerClient } from "@/lib/supabase";
+import { createServerSupabaseClient as createServerClient } from "@/lib/supabase-server";
 import { ProjectForm } from "@/components/projects/ProjectForm";
 import { type Project } from "@/types/database";
 

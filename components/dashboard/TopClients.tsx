@@ -28,7 +28,7 @@ export function TopClients({ clients }: TopClientsProps) {
           <div className="space-y-4">
             {clients.map((client, index) => (
               <div key={client.id} className="flex items-center gap-3">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 text-sm font-semibold text-blue-600 ring-1 ring-blue-100/50">
                   {index + 1}
                 </div>
                 <div className="flex-1 min-w-0">

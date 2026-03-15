@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { createServerSupabaseClient as createServerClient } from "@/lib/supabase";
+import { createServerSupabaseClient as createServerClient } from "@/lib/supabase-server";
 import { InvoiceDetail } from "@/components/invoices/InvoiceDetail";
 
 export const dynamic = "force-dynamic";

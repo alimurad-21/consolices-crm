@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createServerSupabaseClient as createServerClient } from "@/lib/supabase";
+import { createServerSupabaseClient as createServerClient } from "@/lib/supabase-server";
 
 export const dynamic = "force-dynamic";
 
@@ -32,9 +32,11 @@ export async function POST(request: NextRequest) {
   const supabase = createServerClient();
   const body = await request.json();
 
+  const { data: { user } } = await supabase.auth.getUser();
+
   const { data, error } = await supabase
     .from("clients")
-    .insert(body)
+    .insert({ ...body, created_by: user?.id || null })
     .select()
     .single();
 

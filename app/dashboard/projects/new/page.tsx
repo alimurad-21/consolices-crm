@@ -1,4 +1,4 @@
-import { createServerSupabaseClient as createServerClient } from "@/lib/supabase";
+import { createServerSupabaseClient as createServerClient } from "@/lib/supabase-server";
 import { ProjectForm } from "@/components/projects/ProjectForm";
 
 export const dynamic = "force-dynamic";
